@@ -1,7 +1,6 @@
 import { ApiProperty } from '@nestjs/swagger';
 import { IsDate, IsNotEmpty, IsString, IsUUID } from 'class-validator';
 import {
-  BaseEntity,
   Column,
   CreateDateColumn,
   Entity,
@@ -10,7 +9,7 @@ import {
 } from 'typeorm';
 
 @Entity({ name: 'users' })
-export class User extends BaseEntity {
+export class User {
   @ApiProperty({
     description: 'User unique identifier',
     example: '71b3c064-a7df-4a6c-9588-dc347a284558',
@@ -19,7 +18,7 @@ export class User extends BaseEntity {
   @IsUUID()
   @IsNotEmpty()
   @PrimaryGeneratedColumn('uuid')
-  uuid: string;
+  id: string;
 
   @ApiProperty({
     description: 'User auth account identifier',
@@ -28,8 +27,8 @@ export class User extends BaseEntity {
   })
   @IsUUID()
   @IsNotEmpty()
-  @Column({ name: 'auth_uuid' })
-  authUuid: string;
+  @Column({ name: 'auth_id' })
+  authId: string;
 
   @ApiProperty({
     description: 'User full name',

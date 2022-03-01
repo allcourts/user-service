@@ -8,14 +8,14 @@ export class CreateUsersTable1644907643307 implements MigrationInterface {
         columns: [
           {
             type: 'uuid',
-            name: 'uuid',
+            name: 'id',
             isPrimary: true,
             isNullable: false,
             default: 'uuid_generate_v4()',
           },
           {
             type: 'uuid',
-            name: 'auth_uuid',
+            name: 'auth_id',
             isUnique: true,
             isNullable: false,
           },

@@ -32,14 +32,16 @@ export class UserController {
     res.send(response);
   }
 
-  @Get('/:uuid')
+  @Get('/:id')
   @HttpCode(HttpStatus.OK)
   @ApiOkResponse({ type: User })
   async get(
     @Param() params: GetUserParamsDto,
     @Res() res: Response,
   ): Promise<void> {
-    const user = await this.userService.findById(params.uuid);
+    const { id } = params;
+
+    const user = await this.userService.find({ id });
 
     res.send(user);
   }

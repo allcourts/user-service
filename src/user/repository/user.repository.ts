@@ -8,7 +8,7 @@ export class UserRepository extends Repository<User> {
 
   async createUser(user: DeepPartial<User>) {
     try {
-      const newUser = await this.create(user).save();
+      const newUser = await this.save(user);
 
       return newUser;
     } catch (err) {
